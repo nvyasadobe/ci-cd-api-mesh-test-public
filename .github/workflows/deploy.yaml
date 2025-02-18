@@ -38,6 +38,8 @@ jobs:
         run: aio plugins install @adobe/aio-cli-plugin-api-mesh@5.0.0-alpha
       - name: set ENV to stage
         run: aio config set cli.env stage && export AIO_CLI_ENV=stage
+      - name: see aio plugins output
+        run: aio plugins
       - name: Auth
         uses: adobe/aio-apps-action@3.3.0
         with:
@@ -55,5 +57,5 @@ jobs:
         run: aio console:project:select ${{ secrets.PROJECTID_PROD }}
       - name: Select workspace
         run: aio console:workspace:select ${{ secrets.WORKSPACEID_PROD }}
-      - name: api-mesh get
-        run: aio api-mesh get
+      - name: ENABLE_LOGGER=true api-mesh get
+        run: ENABLE_LOGGER=true aio api-mesh get
