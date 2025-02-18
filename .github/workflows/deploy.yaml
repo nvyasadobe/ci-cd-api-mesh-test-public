@@ -57,5 +57,5 @@ jobs:
         run: aio console:project:select ${{ secrets.PROJECTID_PROD }}
       - name: Select workspace
         run: aio console:workspace:select ${{ secrets.WORKSPACEID_PROD }}
-      - name: ENABLE_LOGGER=true api-mesh create
-        run: ENABLE_LOGGER=true aio api-mesh:create venia-mesh.json -c
+      - name: ENABLE_LOGGER=true api-mesh get
+        run: ENABLE_LOGGER=true aio api-mesh get
