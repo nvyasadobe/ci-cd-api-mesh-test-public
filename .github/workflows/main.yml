@@ -36,6 +36,8 @@ jobs:
           version: 10.x.x
       - name: api-mesh-plugin install
         run: aio plugins:install @adobe/aio-cli-plugin-api-mesh@5.0.0-alpha
+      - name: set environment
+        run: aio config set cli.env stage && export AIO_CLI_ENV=stage
       - name: Auth
         uses: adobe/aio-apps-action@3.3.0
         with:
