@@ -51,6 +51,11 @@ jobs:
           TECHNICALACCOUNTEMAIL: ${{ secrets.TECHNICALACCEMAIL_PROD }}
           IMSORGID: ${{ secrets.IMSORGID_PROD }}
           SCOPES: AdobeID, openid, read_organizations, additional_info.projectedProductContext, additional_info.roles, adobeio_api, read_client_secret, manage_client_secrets
+      - name: Print Environment Variables
+        run: env
+      - name: Check Outputs from Authentication
+        run: |
+          echo "Access Token: ${{ steps.auth.outputs.token }}"
       - name: Select org
         run: aio console:org:select ${{ secrets.ORGID_PROD }}
       - name: Select project
